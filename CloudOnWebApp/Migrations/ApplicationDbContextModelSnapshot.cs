@@ -25,12 +25,12 @@ namespace CloudOnWebApp.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Barcode")
-                        .HasColumnType("int");
+                    b.Property<long>("Barcode")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("Code")
+                    b.Property<long>("Code")
                         .HasMaxLength(500)
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -40,9 +40,9 @@ namespace CloudOnWebApp.Migrations
                     b.Property<double>("Discount")
                         .HasColumnType("float");
 
-                    b.Property<int>("ExternalId")
+                    b.Property<long>("ExternalId")
                         .HasMaxLength(10)
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Name")
                         .IsRequired()

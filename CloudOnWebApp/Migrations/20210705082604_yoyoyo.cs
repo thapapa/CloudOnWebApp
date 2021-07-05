@@ -2,7 +2,7 @@
 
 namespace CloudOnWebApp.Migrations
 {
-    public partial class blabla : Migration
+    public partial class yoyoyo : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,11 +12,11 @@ namespace CloudOnWebApp.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ExternalId = table.Column<int>(type: "int", maxLength: 10, nullable: false),
-                    Code = table.Column<int>(type: "int", maxLength: 500, nullable: false),
+                    ExternalId = table.Column<long>(type: "bigint", maxLength: 10, nullable: false),
+                    Code = table.Column<long>(type: "bigint", maxLength: 500, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Barcode = table.Column<int>(type: "int", nullable: false),
+                    Barcode = table.Column<long>(type: "bigint", nullable: false),
                     RetailPrice = table.Column<double>(type: "float", nullable: false),
                     WholePrice = table.Column<double>(type: "float", nullable: false),
                     Discount = table.Column<double>(type: "float", nullable: false)

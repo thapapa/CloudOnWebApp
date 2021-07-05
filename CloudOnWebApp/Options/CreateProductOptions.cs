@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CloudOnWebApp.Entities
+﻿
+namespace CloudOnWebApp.Options
 {
-    public class Product
+    public class CreateProductOptions
     {
-        public int Id { get; set; }
-
         public long ExternalId { get; set; }
         public long Code { get; set; }
         public string Description { get; set; }
@@ -17,7 +11,5 @@ namespace CloudOnWebApp.Entities
         public double RetailPrice { get; set; }
         public double WholePrice { get; set; }
         public double Discount { get; set; }
-
-
     }
 }

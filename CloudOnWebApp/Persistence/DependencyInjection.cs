@@ -1,4 +1,5 @@
 ﻿using CloudOnWebApp.Interfaces;
+using CloudOnWebApp.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,9 @@ namespace CloudOnWebApp.Persistence
                     configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName))
             );
+
+
+            services.AddScoped<IProductService, ProductService>();
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
