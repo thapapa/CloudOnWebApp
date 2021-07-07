@@ -15,7 +15,9 @@ namespace CloudOnWebApp.Interfaces
         Task<Product> GetProductByIdAsync(int id);
 
         Task<Product> CreateProductAsync(CreateProductOptions options);
+        Task<Product> UpdateProductByIdAsync(int id,UpdateProductsOptions options);
         Task<int> DeleteProductByIdAsync(int id);
 
     }
 }
+

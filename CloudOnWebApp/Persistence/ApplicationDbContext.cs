@@ -1,12 +1,13 @@
 ﻿using CloudOnWebApp.Entities;
 using CloudOnWebApp.Interfaces;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using System.Threading.Tasks;
 
 namespace CloudOnWebApp.Persistence
 {
-    public class ApplicationDbContext : DbContext, IApplicationDbContext
+    public class ApplicationDbContext : IdentityDbContext, IApplicationDbContext
     {
 
         public DbSet<Product> Products { set; get; }
