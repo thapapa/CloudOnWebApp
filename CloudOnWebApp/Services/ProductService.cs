@@ -4,6 +4,7 @@ using CloudOnWebApp.Options;
 using CloudOnWebApp.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -30,9 +31,9 @@ namespace CloudOnWebApp.Services
                 return null;
             }
 
-            if (options.RetailPrice<=0 || options.WholePrice <= 0 || options.Discount <= 0)
+            if (options.RetailPrice<0 || options.WholePrice < 0 || options.Discount < 0)
             {
-                _logger.LogError("Product Reatail price or Whole price or Discount cannot be less or equal to zero.");
+                _logger.LogError("Product Reatail price or Whole price or Discount cannot be less to zero.");
 
                 return null;
             }
@@ -113,7 +114,29 @@ namespace CloudOnWebApp.Services
 
         }
 
-        public async Task<List<Product>> GetProductsAsync()
+
+        public async Task<Product> UpdateProductByIdAsync(int id, UpdateProductsOptions options)
+        {
+            var productToUpdate = await GetProductByIdAsync(id);
+
+            productToUpdate.ExternalId = options.ExternalId;
+            productToUpdate.Code = options.Code;
+            productToUpdate.Description = options.Description;
+            productToUpdate.Name = options.Name;
+            productToUpdate.Barcode = options.Barcode;
+            productToUpdate.RetailPrice = options.RetailPrice;
+            productToUpdate.WholePrice = options.WholePrice;
+            productToUpdate.Discount = options.Discount;
+           
+
+            await _context.SaveChangesAsync();
+
+            return productToUpdate;
+        }
+
+
+
+            public async Task<List<Product>> GetProductsAsync()
         {
 
             return await _context.Products.ToListAsync();
